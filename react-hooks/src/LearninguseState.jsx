@@ -21,9 +21,8 @@ const LearninguseState = () => {
   //   let color = state.color;
   //   let count = state.count;
 
-  //using multiple hooks
-  const [count, setCount] = useState(defaultState);
-  //for theme
+  // //using multiple hooks
+  const [count, setCount] = useState(() => defaultState());
   const [theme, setTheme] = useState("");
 
   function incrementCounter() {
