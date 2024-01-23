@@ -59,23 +59,19 @@ const LearninguseState = () => {
 */
 
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          gap: "1rem",
-        }}
-      >
+    <div className="use-state state-common-style">
+      <h2>Learning useState()</h2>
+      <div>
         <button onClick={incrementCounter}>Increment</button>
         <button onClick={decrementCounter}>Decrement</button>
       </div>
-      <p
+      <h3
         style={{
           color: theme,
         }}
       >
         Counter: {count}
-      </p>
+      </h3>
     </div>
   );
 };
