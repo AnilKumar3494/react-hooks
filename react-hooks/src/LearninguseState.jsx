@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./App.css";
 
 //if default state  is passed directly it gets rendered for every click
 function defaultState() {
