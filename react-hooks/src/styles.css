@@ -7,6 +7,11 @@
   padding: 1rem;
 
   margin-bottom: 2rem;
+
+  transition: all 0.3s linear;
+}
+.state-common-style:hover {
+  box-shadow: 0px 0px 30px #5552e8;
 }
 .state-common-style div {
   display: flex;

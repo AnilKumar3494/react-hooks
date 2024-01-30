@@ -86,3 +86,10 @@ export default LearninguseEffect;
 //       <h3>{render}</h3>
 //     </div>
 //   );
+
+/*Structure of use effect
+useEffect(() =>{
+  //The code that we want to run
+  //Optional return function
+  }, []) // dependency array
+*/
