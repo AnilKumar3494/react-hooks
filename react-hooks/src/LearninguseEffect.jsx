@@ -1,11 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function LearninguseEffect() {
   const defaultState = () => {
     return "Click any button above";
   };
 
+  console.log("This is rendering");
+
   const [resource, setResource] = useState(defaultState);
+
+  //State for printing out / rendering data from JSON to our webpage
+  const [resourceItem, setResourceItem] = useState([]);
+
+  useEffect(() => {
+    //Fetching data from JSON
+    fetch(`https://jsonplaceholder.typicode.com/${resource}`)
+      .then((response) => response.json())
+      .then((json) => {
+        if (Array.isArray(json)) {
+          setResourceItem(json);
+        } else {
+          setResourceItem([]);
+        }
+      });
+  }, [resource]);
 
   return (
     <div className="state-common-style use-effect">
@@ -28,6 +46,11 @@ function LearninguseEffect() {
         </button>
       </div>
       <p>{resource}</p>
+      <div>
+        {resourceItem.map((allItems, index) => {
+          return <pre key={index}>{JSON.stringify(allItems)}</pre>;
+        })}
+      </div>
     </div>
   );
 }
