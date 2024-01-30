@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
 
 function LearninguseEffect() {
-  const defaultState = () => {
-    return "Click any button above";
-  };
-
-  console.log("This is rendering");
-
-  const [resource, setResource] = useState(defaultState);
+  const [resource, setResource] = useState("");
 
   //State for printing out / rendering data from JSON to our webpage
   const [resourceItem, setResourceItem] = useState([]);
 
   useEffect(() => {
-    //Fetching data from JSON
+    if (!resource) {
+      return;
+    }
+
+    // Fetching data from JSON
     fetch(`https://jsonplaceholder.typicode.com/${resource}`)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((json) => {
         if (Array.isArray(json)) {
           setResourceItem(json);
         } else {
           setResourceItem([]);
         }
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
   }, [resource]);
 
@@ -45,12 +51,11 @@ function LearninguseEffect() {
           Comments
         </button>
       </div>
-      <p>{resource}</p>
-      <div>
+      <p>
         {resourceItem.map((allItems, index) => {
           return <pre key={index}>{JSON.stringify(allItems)}</pre>;
         })}
-      </div>
+      </p>
     </div>
   );
 }
