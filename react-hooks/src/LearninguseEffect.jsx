@@ -31,25 +31,44 @@ function LearninguseEffect() {
       });
   }, [resource]);
 
-  //Window Width
+  /*
+  //Window Width - calculation
+  //Lazy initialization - not necessary but useful when intial value is a complex calculation
   const innerWindowWidth = () => window.innerWidth;
   const [windowWidth, setwindowWidth] = useState(() => innerWindowWidth());
+*/
 
-  //using useEffect to update it everytime it changes
-  const resizeHandler = () => {
-    setwindowWidth(innerWindowWidth);
+  //Window width and height caculation
+
+  const [width, setwidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  //width
+  const widthHandler = () => {
+    setwidth(window.innerWidth);
   };
 
   useEffect(() => {
-    window.addEventListener("resize", resizeHandler);
+    window.addEventListener("resize", widthHandler);
   }, []);
+
+  //height
+  const heightHandler = () => {
+    setHeight(window.innerHeight);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", heightHandler);
+  });
 
   return (
     <div className="state-common-style use-effect">
       <h2>Learning useEffect()</h2>
-      <div>
+      <div className="dimensions">
         <h3>
-          Finding Window Width: <span>{windowWidth}</span>
+          Window Width: <span>{width}</span>
+        </h3>
+        <h3>
+          Window Height: <span>{height}</span>
         </h3>
       </div>
       <h3>Click any button</h3>
