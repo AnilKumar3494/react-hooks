@@ -28,7 +28,7 @@ const LearninguseState = () => {
     setCount((prevCountValue) => {
       return prevCountValue + 1;
     });
-    setTheme("Green");
+    setTheme("darkgreen");
   }
 
   function decrementCounter() {

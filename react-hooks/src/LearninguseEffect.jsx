@@ -38,7 +38,7 @@ function LearninguseEffect() {
   const [windowWidth, setwindowWidth] = useState(() => innerWindowWidth());
 */
 
-  //Window width and height caculation
+  //Window width and height calculation
 
   const [width, setwidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
@@ -89,12 +89,10 @@ function LearninguseEffect() {
           Comments
         </button>
       </div>
-      <div>
-        <p>
-          {resourceItem.map((allItems, index) => {
-            return <pre key={index}>{JSON.stringify(allItems)}</pre>;
-          })}
-        </p>
+      <div className="resource_container">
+        {resourceItem.map((allItems, index) => {
+          return <pre key={index}>{JSON.stringify(allItems)}</pre>;
+        })}
       </div>
     </div>
   );
