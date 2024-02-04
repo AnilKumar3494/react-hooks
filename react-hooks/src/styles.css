@@ -29,3 +29,13 @@
 .use-effect {
   border: 2px solid salmon;
 }
+
+.dimensions {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+
+.dimensions h3 {
+  margin: 0;
+}
