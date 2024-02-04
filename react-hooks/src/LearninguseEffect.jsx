@@ -31,9 +31,28 @@ function LearninguseEffect() {
       });
   }, [resource]);
 
+  //Window Width
+  const innerWindowWidth = () => window.innerWidth;
+  const [windowWidth, setwindowWidth] = useState(() => innerWindowWidth());
+
+  //using useEffect to update it everytime it changes
+  const resizeHandler = () => {
+    setwindowWidth(innerWindowWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeHandler);
+  }, []);
+
   return (
     <div className="state-common-style use-effect">
       <h2>Learning useEffect()</h2>
+      <div>
+        <h3>
+          Finding Window Width: <span>{windowWidth}</span>
+        </h3>
+      </div>
+      <h3>Click any button</h3>
       <div>
         <button onClick={() => setResource("Posts")}>Posts</button>
         <button
@@ -51,11 +70,13 @@ function LearninguseEffect() {
           Comments
         </button>
       </div>
-      <p>
-        {resourceItem.map((allItems, index) => {
-          return <pre key={index}>{JSON.stringify(allItems)}</pre>;
-        })}
-      </p>
+      <div>
+        <p>
+          {resourceItem.map((allItems, index) => {
+            return <pre key={index}>{JSON.stringify(allItems)}</pre>;
+          })}
+        </p>
+      </div>
     </div>
   );
 }
