@@ -26,7 +26,8 @@ body {
   min-height: 100vh;
   /* background-image: url(assets/hooksreact.jpg);
   background-repeat: no-repeat;
-  background-position: center; */
+  background-position: right;
+  backdrop-filter: blur(6px); */
 }
 
 h1 {
