@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 const LearninguseMemo = () => {
   const [inputNumber, setInputNumber] = useState(2);
@@ -9,16 +9,25 @@ const LearninguseMemo = () => {
   //now using useMemo() to sort of cache the value and only the funcation when the 'inputNnumber' changes.
   const doubler = useMemo(() => {
     return slowFunction(inputNumber);
-  }, [inputNumber]);
+  }, [inputNumber]); //Dependency Similar to useEffect()
 
   //theme change
   const [darkTheme, setDarkTheme] = useState(false);
 
-  const themeStyle = {
-    padding: "0.7rem",
-    backgroundColor: darkTheme ? "grey" : "white",
-    color: darkTheme ? "white" : "black",
-  };
+  //objects in JS changes every execution as they are not referenced by value, so this makes it to rerender everytime
+  //so to prevent it from re-rendering we use the useMemo() to only change when darkTheme is changed
+  const themeStyle = useMemo(() => {
+    return {
+      padding: "0.7rem",
+      backgroundColor: darkTheme ? "grey" : "white",
+      color: darkTheme ? "white" : "black",
+    };
+  }, [darkTheme]);
+
+  //seeing re-render
+  const themeChanged = useEffect(() => {
+    console.log("Theme is Changed");
+  }, [themeStyle]);
 
   //Front end
   return (
