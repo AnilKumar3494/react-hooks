@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import "./styles.css";
 import "./index.css";
+import Particlebg from "./Particlebg";
 import LearninguseState from "./LearninguseState.jsx";
 import LearninguseEffect from "./LearninguseEffect.jsx";
 import LearninguseMemo from "./LearninguseMemo.jsx";
@@ -10,7 +11,7 @@ import LearninguseMemo from "./LearninguseMemo.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <Header /> */}
+    <Particlebg />
     <LearninguseState />
     <LearninguseEffect />
     <LearninguseMemo />
