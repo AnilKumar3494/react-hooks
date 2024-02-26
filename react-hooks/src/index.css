@@ -1,75 +1,53 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+/* State Styles */
+.state-common-style {
+  display: grid;
+  place-items: center;
+  gap: 0.6rem;
 
-  color-scheme: light dark;
-  color: rgba(220, 220, 220);
+  margin-bottom: 2rem;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  transition: all 0.3s linear;
+}
+.state-common-style:hover {
+  box-shadow: 0px 0px 30px #5552e8;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.state-common-style div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
-body {
+/* useState() */
+.use-state {
+  border: 2px solid beige;
+}
+
+/* useEffect() */
+
+.use-effect {
+  border: 2px solid salmon;
+}
+
+.dimensions {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+
+.dimensions h3 {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  /* background-image: url(assets/hooksreact.jpg);
-  background-repeat: no-repeat;
-  background-position: right;
-  backdrop-filter: blur(6px); */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.resource_container {
+  width: 100%; /* Set the desired width */
+  max-height: 20vh; /* Set the desired height */
+  overflow: auto; /* Enable both horizontal and vertical scrolling */
+  border: 2px solid wheat;
+  white-space: pre-wrap; /* Preserve whitespaces and break lines */
 }
 
-input {
-  border-radius: 0.4rem;
-  outline: none;
-  border: none;
-  padding: 0.4rem;
-}
-
-button {
-  border-radius: 8px;
-  border: 2px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* useMemo() */
+.use-memo {
+  border: 2px solid khaki;
 }

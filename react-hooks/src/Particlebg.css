@@ -1,0 +1,18 @@
+.header_container {
+  height: 60vh;
+
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+#tsparticles {
+  height: 100%;
+}
+
+.particles_container {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  z-index: -2;
+}

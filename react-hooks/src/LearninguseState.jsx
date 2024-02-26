@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 //if default state  is passed directly it gets rendered for every click
 function defaultState() {
-  // console.log("This is running");
+  console.log("This is running");
   return 5;
 }
 const LearninguseState = () => {
